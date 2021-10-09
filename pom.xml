@@ -28,6 +28,10 @@
 
     <modules>
         <module>AccountSystemDomain</module>
+        <module>AccountSystemWeb</module>
+        <module>AccountSystemRepository</module>
+        <module>AccountSystemTranslator</module>
+        <module>AccountSystemLogic</module>
     </modules>
 
     <dependencyManagement>
