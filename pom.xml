@@ -29,6 +29,7 @@
     <modules>
         <module>AccountSystemDomain</module>
         <module>AccountSystemWeb</module>
+        <module>AccountSystemWebSpringBoot1</module>
         <module>AccountSystemRepository</module>
         <module>AccountSystemTranslator</module>
         <module>AccountSystemLogic</module>

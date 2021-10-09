@@ -9,10 +9,14 @@
         <module name="AccountSystemTranslator" />
         <module name="AccountSystemDomain" />
         <module name="AccountSystemLogic" />
+        <module name="AccountSystemWebSpringBoot1" />
         <module name="AccountSystemWeb" />
         <module name="AccountSystemRepository" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="AccountSystemWeb (1)" target="8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
@@ -21,6 +25,8 @@
       <module name="AccountSystemRepository" options="-parameters" />
       <module name="AccountSystemTranslator" options="-parameters" />
       <module name="AccountSystemWeb" options="-parameters" />
+      <module name="AccountSystemWeb (1)" options="-parameters" />
+      <module name="AccountSystemWebSpringBoot1" options="-parameters" />
     </option>
   </component>
 </project>
