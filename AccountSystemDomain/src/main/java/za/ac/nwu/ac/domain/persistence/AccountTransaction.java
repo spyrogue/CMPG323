@@ -1,10 +1,17 @@
 package za.ac.nwu.ac.domain.persistence;
 
+
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.Set;
 
-public class AccountTransaction {
+@Entity
+@Table(name = "DEMO_ACCOUNT_TYPE",schema = "HR")
+public class AccountTransaction implements Serializable {
+
     private static final long serialVersionUID = 7037046296037302415L;
 
     private Long transactionId = 0l;

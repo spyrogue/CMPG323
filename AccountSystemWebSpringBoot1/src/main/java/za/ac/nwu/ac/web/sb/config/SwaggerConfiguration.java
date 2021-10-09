@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,10 +18,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.Collections;
 
-@SpringBootApplication(exclude={DataSourceAutoConfiguration.class})
 @Component
 @EnableSwagger2
 @Import(springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration.class)
+
 public class SwaggerConfiguration {
     @Value("2.9.2")
     private String applicationVersion;
@@ -39,6 +40,8 @@ public class SwaggerConfiguration {
                 .pathMapping("/")
                 .apiInfo(apiInfo());
     }
+
+
     private ApiInfo apiInfo() {
         return new ApiInfo(
                 applicationName,

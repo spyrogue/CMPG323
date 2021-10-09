@@ -1,17 +1,20 @@
 package za.ac.nwu.ac.domain.dto;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import za.ac.nwu.ac.domain.persistence.AccountType;
 
+
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
+@ApiModel(value = "AccountType",
+        description = "A DTO that represents the AccountType" )
+public class AccountTypeDto implements Serializable {
 
-
-@ApiModel(value = "AccountType",description = "A DTO that represents the AccountType")
-public class AccountTypeDto {
     private static final long serialVersionUID = 375561885870006305L;
 
     private String mnemonic;
@@ -106,5 +109,6 @@ public class AccountTypeDto {
                 ", accountTypeName='" + accountTypeName + '\'' +
                 ", creationDate=" + creationDate +
                 '}';
+
     }
 }

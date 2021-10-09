@@ -1,8 +1,11 @@
 package za.ac.nwu.ac.domain.persistence;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
-public class AccountTransactionDetails {
+@Entity
+@Table(name = "ACCOUNT_TX_DETAILS",schema = "HR")
+public class AccountTransactionDetails implements Serializable {
     Long accountTransactionDetailsId;
     AccountTransaction accountTransaction;
     String partnerName;
@@ -60,4 +63,3 @@ public class AccountTransactionDetails {
         this.numberOfItems = numberOfItems;
     }
 }
-

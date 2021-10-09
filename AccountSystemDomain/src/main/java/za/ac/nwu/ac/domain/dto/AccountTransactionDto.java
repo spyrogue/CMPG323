@@ -16,7 +16,6 @@ public class AccountTransactionDto implements Serializable {
     private LocalDate transactionDate;
     private AccountTransactionDetailsDto details;
 
-
     public AccountTransactionDto(){
 
     }

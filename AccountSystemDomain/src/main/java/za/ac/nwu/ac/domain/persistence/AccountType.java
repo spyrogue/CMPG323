@@ -3,13 +3,12 @@ package za.ac.nwu.ac.domain.persistence;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Set;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
-@Table(name = "DEMO_ACCOUNT_TYPE", schema = "HR")
+@Table(name = "DEMO_ACCOUNT_TYPE",schema = "HR")
 public class AccountType implements Serializable {
-
     private static final long serialVersionUID = 806829754665685140L;
 
     private Long accountTypeId;

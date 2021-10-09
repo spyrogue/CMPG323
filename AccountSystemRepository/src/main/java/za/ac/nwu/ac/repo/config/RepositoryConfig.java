@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EntityScan("za.ac.nwu.ac.domain.persistence")
 @PropertySource(value = "classpath:application-db.properties")
 
+
 public class RepositoryConfig {
     /*public static final String[] ENTITY_PACKAGES_TO_SCAN = {"za.ac.nwu..ac.domain.persistence"};
     public static final String PERSISTENCE_UNIT_NAME = "account.system.persistence";

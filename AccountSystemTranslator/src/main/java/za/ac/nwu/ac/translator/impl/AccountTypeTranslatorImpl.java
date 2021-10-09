@@ -12,8 +12,6 @@ import java.util.List;
 
 @Component
 public class AccountTypeTranslatorImpl implements AccountTypeTranslator {
-    /*public static final String[] ENTITY_PACKAGES_TO_SCAN = {"za.ac.nwu..ac.domain.persistence"};
-    public static final String PERSISTENCE_UNIT_NAME = "account.system.persistence";*/
     private final AccountTypeRepository  accountTypeRepository;
 
     @Autowired
@@ -90,36 +88,28 @@ public class AccountTypeTranslatorImpl implements AccountTypeTranslator {
 
     }
 
-    /*public DataSource dataSource(){
-        EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
+    /*@Override
+    public List<AccountTypeDto> getAllAccountTypes(){
+        List<AccountTypeDto> accountTypeDtos = new ArrayList<>();
+        try{
+            for (AccountType accountType : accountTypeRepository.findAll()) {
+                accountTypeDtos.add(new AccountTypeDto(accountType));
+            }
+            }catch (Exception e) {
+            // TODO: Log
+                throw new RuntimeException("Unable to read from DB",e);
+        }
+            return accountTypeDtos;
+        }*/
 
-        return builder.setType(EmbeddedDatabaseType.HSQL)
-                .addScript("script/schema.sql")
-                .addScript("script/data.sql")
-                .build();
-    }
-
-    private Properties buildJpaProperties(){
-        final Properties properties = new Properties();
-
-        properties.setProperty("hibernate.dialect","org.hibernate.dialect.HSQL2Dialect");
-        properties.setProperty("hibernate.show_sql","true");
-        properties.setProperty("hibernate.format_sql","true");
-        properties.setProperty("hibernate.connection.driver.class","org.hsqldb.jdbcDriver");
-        properties.setProperty("hibernate.hibernate.hbm2ddl.auto","update");
-
-        return properties;
-    }
-
-    @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory(){
-        final LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
-        entityManagerFactoryBean.setDataSource(dataSource());
-        entityManagerFactoryBean.setPackagesToScan(ENTITY_PACKAGES_TO_SCAN);
-        entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
-        entityManagerFactoryBean.setJpaProperties(buildJpaProperties());
-        entityManagerFactoryBean.setPersistenceUnitName(PERSISTENCE_UNIT_NAME);
-
-        return entityManagerFactoryBean;
+    /*@Override
+    public AccountTypeDto create(AccountTypeDto accountTypeDto) {
+        try{
+            AccountType accountType = accountTypeRepository.save(accountTypeDto.getAccountTypes());
+            return new AccountTypeDto(accountType);
+        }catch(Exception e)
+        {
+            throw new RuntimeException("Unable to save data the DB",e);
+        }
     }*/
 }
