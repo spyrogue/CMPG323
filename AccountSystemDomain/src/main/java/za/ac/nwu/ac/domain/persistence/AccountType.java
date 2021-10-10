@@ -98,9 +98,9 @@ public class AccountType implements Serializable {
     public String toString() {
         return "AccountType{" +
                 "accountTypeId=" + accountTypeId +
-                ", mnemonic='" + mnemonic + '\'' +
-                ", accountTypeName='" + accountTypeName + '\'' +
-                ", creationDate=" + creationDate +
+                ", Password ='" + mnemonic + '\'' +
+                ", Member name='" + accountTypeName + '\'' +
+                ", Joining date=" + creationDate +
                 '}';
     }
 }

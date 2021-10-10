@@ -105,9 +105,9 @@ public class AccountTypeDto implements Serializable {
     @Override
     public String toString() {
         return "AccountTypeDto{" +
-                "mnemonic='" + mnemonic + '\'' +
-                ", accountTypeName='" + accountTypeName + '\'' +
-                ", creationDate=" + creationDate +
+                "Password ='" + mnemonic + '\'' +
+                ", Member name='" + accountTypeName + '\'' +
+                ", Joining Date=" + creationDate +
                 '}';
 
     }

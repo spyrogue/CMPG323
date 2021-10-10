@@ -38,7 +38,7 @@ public class AccountTypeController {
     }
 
     @GetMapping("/all")
-    @ApiOperation(value = "Gets all the configured Account types.", notes = "Returns list of account types")
+    @ApiOperation(value = "Gets all the members signed up.", notes = "Returns list of all members")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Account types returned", response = GeneralResponse.class),
             @ApiResponse(code = 400, message = "Bad Request", response = GeneralResponse.class),
@@ -51,13 +51,13 @@ public class AccountTypeController {
     }
 
     @PostMapping("")
-    @ApiOperation(value = "Create new AccountType.", notes = "creates a new AccountType in DB")
+    @ApiOperation(value = "Create new Member.", notes = "Creates a new Member in DB")
     @ApiResponses(value = {
-            @ApiResponse(code = 201, message = "The account was created successfully", response = GeneralResponse.class),
+            @ApiResponse(code = 201, message = "The member was created successfully", response = GeneralResponse.class),
             @ApiResponse(code = 400, message = "Bad request", response = GeneralResponse.class),
             @ApiResponse(code = 500, message = "Internal server error", response = GeneralResponse.class)})
     public ResponseEntity<GeneralResponse<AccountTypeDto>> create(
-            @ApiParam(value = "Request body to create new AccountType", required = true)
+            @ApiParam(value = "Request body to create new Member", required = true)
             @RequestBody AccountTypeDto accountType) {
         AccountTypeDto accountTypeResponse = createAccountTypeFlow.create(accountType);
         GeneralResponse<AccountTypeDto> response = new GeneralResponse<>(true, accountTypeResponse);
@@ -65,13 +65,15 @@ public class AccountTypeController {
     }
 
     @GetMapping("{mnemonic}")
-    @ApiOperation(value = "Fetches the specified AccountType.",notes = "Fetches the AccountType corresponding to the given mnemonic.")
+    @ApiOperation(value = "Fetches the specified Member.",notes = "Fetches the Member corresponding to the given mnemonic.")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Goal found"),
             @ApiResponse(code = 400, message = "Bad request", response = GeneralResponse.class),
             @ApiResponse(code = 404, message = "Resource not found", response = GeneralResponse.class),
             @ApiResponse(code = 500, message = "Internal server error", response = GeneralResponse.class)
     })
+
+
     public ResponseEntity<GeneralResponse<AccountTypeDto>> getAccountType(
             @ApiParam(value = "The mnemonic that uniquely identifies the AccountType.",
                     example = "MILES",
@@ -103,6 +105,7 @@ public class AccountTypeController {
         return new ResponseEntity<>(response,HttpStatus.OK);
     }
 
+
     @PutMapping("{mnemonic}")
     @ApiOperation(value = "Updates the specified account type",notes = "Updates the AccountType corresponding to the given mnemonic")
     @ApiResponses(value = {
@@ -111,6 +114,8 @@ public class AccountTypeController {
             @ApiResponse(code = 404, message = "Resource not found", response = GeneralResponse.class),
             @ApiResponse(code = 500, message = "Internal server error", response = GeneralResponse.class)
     })
+
+
     public ResponseEntity<GeneralResponse<AccountTypeDto>> updateAccountType(
             @ApiParam(value = "The mnemonic that uniquely identifies the AccountType.",
                     example = "MILES",
