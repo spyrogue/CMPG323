@@ -11,8 +11,8 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
-@ApiModel(value = "AccountType",
-        description = "A DTO that represents the AccountType" )
+@ApiModel(value = "Member",
+        description = "A DTO that represents the Member" )
 public class AccountTypeDto implements Serializable {
 
     private static final long serialVersionUID = 375561885870006305L;
@@ -37,9 +37,9 @@ public class AccountTypeDto implements Serializable {
     }
 
     @ApiModelProperty(position = 1,
-            value = "AccountType Mnemonic",
-            name ="Mnemonic",
-            notes ="uniquely identifies the account type",
+            value = "Member name",
+            name ="Password",
+            notes ="uniquely identifies the member",
             dataType ="java.lang.String",
             example ="MILES",
             required = true)
@@ -51,9 +51,9 @@ public class AccountTypeDto implements Serializable {
     }
 
     @ApiModelProperty(position = 2,
-            value = "AccountType Name",
+            value = "Member Name",
             name ="Name",
-            notes ="Name of the account type",
+            notes ="Name of the member",
             dataType ="java.lang.String",
             example ="MILES",
             allowEmptyValue = false,
@@ -67,9 +67,9 @@ public class AccountTypeDto implements Serializable {
     }
 
     @ApiModelProperty(position = 3,
-            value = "AccountType creation date",
+            value = "Member creation date",
             name = "creationDate",
-            notes = "This is the date on which the AccountType was created",
+            notes = "This is the date on which the Member was created",
             dataType = "java.lang.String",
             /*example = "2020-01-01",*/
             allowEmptyValue = true,

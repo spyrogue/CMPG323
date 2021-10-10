@@ -105,7 +105,7 @@ public class AccountTransaction implements Serializable {
     public String toString() {
         return "AccountTransaction{" +
                 "transactionId=" + transactionId +
-                ", accountType=" + accountType +
+                ", Member=" + accountType +
                 ", memberId=" + memberId +
                 ", amount=" + amount +
                 ", transactionDate=" + transactionDate +

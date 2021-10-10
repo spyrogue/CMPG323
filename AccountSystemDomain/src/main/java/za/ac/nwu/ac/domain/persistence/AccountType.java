@@ -11,27 +11,27 @@ import java.util.Set;
 public class AccountType implements Serializable {
     private static final long serialVersionUID = 806829754665685140L;
 
-    private Long accountTypeId;
-    private String mnemonic;
-    private String accountTypeName;
-    private LocalDate creationDate;
+    private Long memberId;
+    private String memberPassword;
+    private String memberName;
+    private LocalDate joiningDate;
 
     private Set<AccountTransaction> accountTransactions;
 
     public AccountType() {
     }
 
-    public AccountType(Long accountTypeId, String mnemonic, String accountTypeName, LocalDate creationDate) {
-        this.accountTypeId = accountTypeId;
-        this.mnemonic = mnemonic;
-        this.accountTypeName = accountTypeName;
-        this.creationDate = creationDate;
+    public AccountType(Long memberId, String memberPassword, String memberName, LocalDate joiningDate) {
+        this.memberId = memberId;
+        this.memberPassword = memberPassword;
+        this.memberName = memberName;
+        this.joiningDate = joiningDate;
     }
 
-    public AccountType(String mnemonic, String accountTypeName, LocalDate creationDate) {
-        this.mnemonic = mnemonic;
-        this.accountTypeName = accountTypeName;
-        this.creationDate = creationDate;
+    public AccountType(String memberPassword, String memberName, LocalDate joiningDate) {
+        this.memberPassword = memberPassword;
+        this.memberName = memberName;
+        this.joiningDate = joiningDate;
     }
 
     @Id
@@ -40,22 +40,22 @@ public class AccountType implements Serializable {
 
     @Column(name = "ACCOUNT_TYPE_ID")
     public Long getAccountTypeId() {
-        return accountTypeId;
+        return memberId;
     }
 
     @Column(name = "MNEMONIC")
     public String getMnemonic() {
-        return mnemonic;
+        return memberPassword;
     }
 
     @Column(name = "ACCOUNT_TYPE_NAME")
     public String getAccountTypeName() {
-        return accountTypeName;
+        return memberName;
     }
 
     @Column(name = "CREATION_DATE")
     public LocalDate getCreationDate() {
-        return creationDate;
+        return joiningDate;
     }
 
 
@@ -68,17 +68,17 @@ public class AccountType implements Serializable {
         this.accountTransactions = accountTransactions;
     }
 
-    public void setAccountTypeId(Long accountTypeId) {
-        this.accountTypeId = accountTypeId;
+    public void setAccountTypeId(Long memberId) {
+        this.memberId = memberId;
     }
-    public void setMnemonic(String mnemonic) {
-        this.mnemonic = mnemonic;
+    public void setMnemonic(String memberPassword) {
+        this.memberPassword = memberPassword;
     }
-    public void setAccountTypeName(String accountTypeName) {
-        this.accountTypeName = accountTypeName;
+    public void setAccountTypeName(String memberName) {
+        this.memberName = memberName;
     }
-    public void setCreationDate(LocalDate creationDate) {
-        this.creationDate = creationDate;
+    public void setCreationDate(LocalDate joiningDate) {
+        this.joiningDate = joiningDate;
     }
 
     @Override
@@ -86,21 +86,21 @@ public class AccountType implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         AccountType that = (AccountType) o;
-        return Objects.equals(accountTypeId, that.accountTypeId) && Objects.equals(mnemonic, that.mnemonic) && Objects.equals(accountTypeName, that.accountTypeName) && Objects.equals(creationDate, that.creationDate);
+        return Objects.equals(memberId, that.memberId) && Objects.equals(memberPassword, that.memberPassword) && Objects.equals(memberName, that.memberName) && Objects.equals(joiningDate, that.joiningDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountTypeId, mnemonic, accountTypeName, creationDate);
+        return Objects.hash(memberId, memberPassword, memberName, joiningDate);
     }
 
     @Override
     public String toString() {
         return "AccountType{" +
-                "accountTypeId=" + accountTypeId +
-                ", Password ='" + mnemonic + '\'' +
-                ", Member name='" + accountTypeName + '\'' +
-                ", Joining date=" + creationDate +
+                "memberId=" + memberId +
+                ", Password ='" + memberPassword + '\'' +
+                ", Member name='" + memberName + '\'' +
+                ", Joining date=" + joiningDate +
                 '}';
     }
 }
