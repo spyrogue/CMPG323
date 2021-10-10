@@ -27,7 +27,7 @@ public class SwaggerConfiguration {
     private String applicationVersion;
     @Value("springfox-swagger2")
     private String applicationName;
-    @Value("This is the Account System")
+    @Value("System that shows all members")
     private String applicationDescription;
 
     @Bean
@@ -48,7 +48,7 @@ public class SwaggerConfiguration {
                 applicationDescription,
                 applicationVersion,
                 "",
-                new Contact("Your Name or Team Name", "", "email address"),
+                new Contact("Other members", "", "email address"),
                 "",
                 "",
                 Collections.emptyList());

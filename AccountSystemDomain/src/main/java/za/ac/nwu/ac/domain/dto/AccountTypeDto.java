@@ -17,17 +17,17 @@ public class AccountTypeDto implements Serializable {
 
     private static final long serialVersionUID = 375561885870006305L;
 
-    private String mnemonic;
-    private String accountTypeName;
-    private LocalDate creationDate;
+    private String password;
+    private String memberName;
+    private LocalDate joiningDate;
 
     public AccountTypeDto() {
     }
 
-    public AccountTypeDto(String mnemonic, String accountTypeName, LocalDate creationDate) {
-        this.mnemonic = mnemonic;
-        this.accountTypeName = accountTypeName;
-        this.creationDate = creationDate;
+    public AccountTypeDto(String password, String memberName, LocalDate joiningDate) {
+        this.password = password;
+        this.memberName = memberName;
+        this.joiningDate = joiningDate;
     }
 
     public AccountTypeDto(AccountType accountType) {
@@ -43,11 +43,11 @@ public class AccountTypeDto implements Serializable {
             dataType ="java.lang.String",
             example ="MILES",
             required = true)
-    public String getMnemonic(){return mnemonic;
+    public String getMnemonic(){return password;
     }
 
-    public void setMnemonic(String mnemonic) {
-        this.mnemonic = mnemonic;
+    public void setMnemonic(String password) {
+        this.password = password;
     }
 
     @ApiModelProperty(position = 2,
@@ -59,27 +59,27 @@ public class AccountTypeDto implements Serializable {
             allowEmptyValue = false,
             required = true)
     public String getAccountTypeName() {
-        return accountTypeName;
+        return memberName;
     }
 
-    public void setAccountTypeName(String accountTypeName) {
-        this.accountTypeName = accountTypeName;
+    public void setAccountTypeName(String memberName) {
+        this.memberName = memberName;
     }
 
     @ApiModelProperty(position = 3,
             value = "Member creation date",
-            name = "creationDate",
+            name = "joiningDate",
             notes = "This is the date on which the Member was created",
             dataType = "java.lang.String",
             /*example = "2020-01-01",*/
             allowEmptyValue = true,
             required = false)
     public LocalDate getCreationDate() {
-        return creationDate;
+        return joiningDate;
     }
 
-    public void setCreationDate(LocalDate creationDate) {
-        this.creationDate = creationDate;
+    public void setCreationDate(LocalDate joiningDate) {
+        this.joiningDate = joiningDate;
     }
 
 
@@ -94,20 +94,20 @@ public class AccountTypeDto implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         AccountTypeDto that = (AccountTypeDto) o;
-        return Objects.equals(mnemonic, that.mnemonic) && Objects.equals(accountTypeName, that.accountTypeName) && Objects.equals(creationDate, that.creationDate);
+        return Objects.equals(password, that.password) && Objects.equals(memberName, that.memberName) && Objects.equals(joiningDate, that.joiningDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(mnemonic, accountTypeName, creationDate);
+        return Objects.hash(password, memberName, joiningDate);
     }
 
     @Override
     public String toString() {
         return "AccountTypeDto{" +
-                "Password ='" + mnemonic + '\'' +
-                ", Member name='" + accountTypeName + '\'' +
-                ", Joining Date=" + creationDate +
+                "Password ='" + password + '\'' +
+                ", Member name='" + memberName + '\'' +
+                ", Joining Date=" + joiningDate +
                 '}';
 
     }
