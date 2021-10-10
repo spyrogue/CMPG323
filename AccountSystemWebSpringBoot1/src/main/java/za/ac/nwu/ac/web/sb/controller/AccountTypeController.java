@@ -22,7 +22,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@RequestMapping("account-type")
+@RequestMapping("member")
 public class AccountTypeController {
 
     private final FetchAccountTypeFlow fetchAccountTypeFlow;
@@ -75,7 +75,7 @@ public class AccountTypeController {
 
 
     public ResponseEntity<GeneralResponse<AccountTypeDto>> getAccountType(
-            @ApiParam(value = "The mnemonic that uniquely identifies the AccountType.",
+            @ApiParam(value = "The password that uniquely identifies the Member.",
                     example = "MILES",
                     name = "mnemonic",
                     required = true)
@@ -86,15 +86,17 @@ public class AccountTypeController {
     }
 
     @DeleteMapping("{mnemonic}")
-    @ApiOperation(value = "Deletes the specified AccountType",notes = "Deletes the AccountType corresponding to given mnemonic")
+    @ApiOperation(value = "Deletes the specified Member",notes = "Deletes the Member corresponding to given password")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "AccountType deleted"),
+            @ApiResponse(code = 200, message = "Member deleted"),
             @ApiResponse(code = 400, message = "Bad request", response = GeneralResponse.class),
             @ApiResponse(code = 404, message = "Resource not found", response = GeneralResponse.class),
             @ApiResponse(code = 500, message = "Internal server error", response = GeneralResponse.class)
     })
+
+
     public ResponseEntity<GeneralResponse<AccountTypeDto>> deleteAccountType(
-            @ApiParam(value = "The mnemonic that uniquely identifies the AccountType.",
+            @ApiParam(value = "The password that uniquely identifies the Member.",
                     example = "MILES",
                     name = "mnemonic",
                     required = true)
@@ -107,7 +109,7 @@ public class AccountTypeController {
 
 
     @PutMapping("{mnemonic}")
-    @ApiOperation(value = "Updates the specified account type",notes = "Updates the AccountType corresponding to the given mnemonic")
+    @ApiOperation(value = "Updates the specified Member",notes = "Updates the Member corresponding to the given password")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "AccountType updated"),
             @ApiResponse(code = 400, message = "Bad request", response = GeneralResponse.class),
@@ -117,13 +119,13 @@ public class AccountTypeController {
 
 
     public ResponseEntity<GeneralResponse<AccountTypeDto>> updateAccountType(
-            @ApiParam(value = "The mnemonic that uniquely identifies the AccountType.",
+            @ApiParam(value = "The password that uniquely identifies the Member.",
                     example = "MILES",
                     name = "mnemonic",
                     required = true)
             @PathVariable("mnemonic") final String mnemonic,
 
-            @ApiParam(value = "The new AccountTypeName that the specified should be updated with.",
+            @ApiParam(value = "The new Member that should be updated.",
                     name = "newAccountTypeName",
                     required = true)
             @RequestParam("newAccountTypeName") final String newAccountTypeName,
