@@ -27,7 +27,12 @@ public class ModifyAccountTypeFlowImpl implements ModifyAccountTypeFlow {
     }
 
     @Override
-    public AccountTypeDto updateAccountType(String mnemonic, String newAccountTypeName, LocalDate newCreationDate) {
+    public AccountTypeDto addMiles(String memberName, Long miles) {
+        return accountTypeTranslator.addMiles(memberName, miles);
+    }
+
+    @Override
+    public AccountTypeDto updateAccountType(String mnemonic, String newAccountTypeName, LocalDate newCreationDate, Long miles) {
         return null;
     }
 }

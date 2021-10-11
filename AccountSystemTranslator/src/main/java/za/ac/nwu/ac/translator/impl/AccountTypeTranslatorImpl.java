@@ -68,7 +68,7 @@ public class AccountTypeTranslatorImpl implements AccountTypeTranslator {
         try {
             return accountTypeRepository.deleteAccountType(mnemonic);
         }catch (Exception e){
-            throw new RuntimeException("Unable to read from DB",e);
+            throw new RuntimeException("Unable to delete data from the DB",e);
         }
     }
 
@@ -80,6 +80,15 @@ public class AccountTypeTranslatorImpl implements AccountTypeTranslator {
         }catch(Exception e)
         {
             throw new RuntimeException("Unable to save data the DB",e);
+        }
+    }
+
+    @Override
+    public AccountTypeDto addMiles(String memberName, Long miles) {
+        try {
+            return accountTypeRepository.addMiles(memberName, miles);
+        }catch (Exception e){
+            throw new RuntimeException("Unable to add miles",e);
         }
     }
 

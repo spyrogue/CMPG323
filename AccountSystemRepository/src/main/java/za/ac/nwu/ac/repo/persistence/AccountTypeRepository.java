@@ -13,6 +13,7 @@ public interface AccountTypeRepository extends JpaRepository<AccountType, Long> 
             "        ACCOUNT_TYPE_NAME,"+
             "        CREATION_DATE,"+
             "        MNEMONIC"+
+            "        MILES"+
             "  FROM"+
             "  HR.DEMO_ACCOUNT_TYPE"+
             "  WHERE MNEMONIC = :mnemonic",
@@ -27,7 +28,8 @@ public interface AccountTypeRepository extends JpaRepository<AccountType, Long> 
     @Query(value = "SELECT new za.ac.nwu.ac.domain.dto.AccountTypeDto( "+
             "       at.mnemonic, "+
             "       at.accountTypeName, "+
-            "       at.creationDate) "+
+            "       at.creationDate, "+
+            "       at.miles) "+
             "       FROM "+
             "       AccountType at "+
             "       WHERE at.mnemonic = :mnemonic ")
@@ -38,9 +40,24 @@ public interface AccountTypeRepository extends JpaRepository<AccountType, Long> 
     @Query(value = "SELECT new za.ac.nwu.ac.domain.dto.AccountTypeDto( "+
             "       at.mnemonic, "+
             "       at.accountTypeName, "+
-            "       at.creationDate) "+
+            "       at.creationDate, "+
+            "       at.miles) "+
             "       FROM "+
             "       AccountType at "+
             "       WHERE at.mnemonic = :mnemonic ")
     AccountTypeDto deleteAccountType(String mnemonic);
+
+
+
+    @Query(value = "SELECT new za.ac.nwu.ac.domain.dto.AccountTypeDto( "+
+            "       at.mnemonic, "+
+            "       at.accountTypeName, "+
+            "       at.creationDate, "+
+            "       at.miles) "+
+            "       FROM "+
+            "       AccountType at "+
+            "       WHERE at.mnemonic = :mnemonic ")
+    AccountTypeDto addMiles(String memberName, Long miles);
+
+
 }

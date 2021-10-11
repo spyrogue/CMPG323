@@ -18,6 +18,8 @@ public interface AccountTypeTranslator {
 
     AccountTypeDto deleteAccountType(String mnemonic);
 
+    AccountTypeDto addMiles(String memberName, Long miles);
+
     void someMethod();
 
 }

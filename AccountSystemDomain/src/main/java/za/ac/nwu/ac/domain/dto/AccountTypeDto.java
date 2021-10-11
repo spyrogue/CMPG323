@@ -20,20 +20,23 @@ public class AccountTypeDto implements Serializable {
     private String password;
     private String memberName;
     private LocalDate joiningDate;
+    private Long miles;
 
     public AccountTypeDto() {
     }
 
-    public AccountTypeDto(String password, String memberName, LocalDate joiningDate) {
+    public AccountTypeDto(String password, String memberName, LocalDate joiningDate, Long miles) {
         this.password = password;
         this.memberName = memberName;
         this.joiningDate = joiningDate;
+        this.miles = miles;
     }
 
     public AccountTypeDto(AccountType accountType) {
         this.setAccountTypeName(accountType.getAccountTypeName());
         this.setCreationDate(accountType.getCreationDate());
         this.setMnemonic(accountType.getMnemonic());
+        this.setMiles(accountType.getMiles());
     }
 
     @ApiModelProperty(position = 1,
@@ -45,10 +48,10 @@ public class AccountTypeDto implements Serializable {
             required = true)
     public String getMnemonic(){return password;
     }
-
     public void setMnemonic(String password) {
         this.password = password;
     }
+
 
     @ApiModelProperty(position = 2,
             value = "Member Name",
@@ -71,7 +74,7 @@ public class AccountTypeDto implements Serializable {
             name = "joiningDate",
             notes = "This is the date on which the Member was created",
             dataType = "java.lang.String",
-            /*example = "2020-01-01",*/
+            example = "2020-01-01",
             allowEmptyValue = true,
             required = false)
     public LocalDate getCreationDate() {
@@ -82,11 +85,26 @@ public class AccountTypeDto implements Serializable {
         this.joiningDate = joiningDate;
     }
 
+    @ApiModelProperty(position = 4,
+            value = "Miles",
+            name ="Miles",
+            notes ="Amount of miles",
+            dataType ="java.lang.String",
+            example ="1000",
+            required = true)
+    public Long getMiles(){return miles;
+    }
+    public void setMiles(Long miles) {
+        this.miles = miles;
+    }
+
+
+
 
 
     @JsonIgnore
     public AccountType getAccountTypes(){
-        return new AccountType(getMnemonic(), getAccountTypeName(), getCreationDate());
+        return new AccountType(getMnemonic(), getAccountTypeName(), getCreationDate(),getMiles());
     }
 
     @Override
@@ -108,6 +126,7 @@ public class AccountTypeDto implements Serializable {
                 "Password ='" + password + '\'' +
                 ", Member name='" + memberName + '\'' +
                 ", Joining Date=" + joiningDate +
+                ", Joining Date=" + miles +
                 '}';
 
     }

@@ -12,4 +12,8 @@ public class ModifyAccountTypeFlow {
     public AccountType deleteAccountType(String mnemonic) {
         return null;
     }
+
+    public AccountType addMiles(String memberName, Long miles) {
+        return null;
+    }
 }

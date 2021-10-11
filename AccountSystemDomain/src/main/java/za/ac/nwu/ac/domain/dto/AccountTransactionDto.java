@@ -15,17 +15,19 @@ public class AccountTransactionDto implements Serializable {
     private Long amount;
     private LocalDate transactionDate;
     private AccountTransactionDetailsDto details;
+    private Long miles;
 
     public AccountTransactionDto(){
 
     }
 
-    public AccountTransactionDto(Long transactionId, String accountTypeMnemonic, Long memberId, Long amount, LocalDate transactionDate) {
+    public AccountTransactionDto(Long transactionId, String accountTypeMnemonic, Long memberId, Long amount, LocalDate transactionDate, Long miles) {
         this.transactionId = transactionId;
         this.accountTypeMnemonic = accountTypeMnemonic;
         this.memberId = memberId;
         this.amount = amount;
         this.transactionDate = transactionDate;
+        this.miles = miles;
     }
 
     public AccountTransactionDto(Long transactionId, String accountTypeMnemonic, Long memberId, Long amount, LocalDate transactionDate, AccountTransactionDetailsDto details) {
@@ -43,10 +45,11 @@ public class AccountTransactionDto implements Serializable {
         this.memberId = accountTransaction.getMemberId();
         this.amount = accountTransaction.getAmount();
         this.transactionDate = accountTransaction.getTransactionDate();
+        this.miles = accountTransaction.getMiles();
     }
     @JsonIgnore
     public AccountTransaction buildAccountTransaction(AccountType accountType){
-        return new AccountTransaction(this.getTransactionId(),accountType,this.getMemberId(),this.getAmount(),this.getTransactionDate());
+        return new AccountTransaction(this.getTransactionId(),accountType,this.getMemberId(),this.getAmount(),this.getTransactionDate(),this.getMiles());
     }
 
     public Long getTransactionId() {
@@ -87,5 +90,13 @@ public class AccountTransactionDto implements Serializable {
 
     public void setTransactionDate(LocalDate transactionDate) {
         this.transactionDate = transactionDate;
+    }
+
+    public Long getMiles() {
+        return miles;
+    }
+
+    public void setMiles(Long miles) {
+        this.miles = miles;
     }
 }

@@ -15,23 +15,26 @@ public class AccountType implements Serializable {
     private String memberPassword;
     private String memberName;
     private LocalDate joiningDate;
+    private Long miles;
 
     private Set<AccountTransaction> accountTransactions;
 
     public AccountType() {
     }
 
-    public AccountType(Long memberId, String memberPassword, String memberName, LocalDate joiningDate) {
+    public AccountType(Long memberId, String memberPassword, String memberName, LocalDate joiningDate, Long miles) {
         this.memberId = memberId;
         this.memberPassword = memberPassword;
         this.memberName = memberName;
         this.joiningDate = joiningDate;
+        this.miles = miles;
     }
 
-    public AccountType(String memberPassword, String memberName, LocalDate joiningDate) {
+    public AccountType(String memberPassword, String memberName, LocalDate joiningDate, Long miles) {
         this.memberPassword = memberPassword;
         this.memberName = memberName;
         this.joiningDate = joiningDate;
+        this.miles = miles;
     }
 
     @Id
@@ -39,23 +42,33 @@ public class AccountType implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "VIT_RSA_GENERIC_SEQ")
 
     @Column(name = "ACCOUNT_TYPE_ID")
-    public Long getAccountTypeId() {
+    public Long getAccountTypeId()
+    {
         return memberId;
     }
 
     @Column(name = "MNEMONIC")
-    public String getMnemonic() {
+    public String getMnemonic()
+    {
         return memberPassword;
     }
 
     @Column(name = "ACCOUNT_TYPE_NAME")
-    public String getAccountTypeName() {
+    public String getAccountTypeName()
+    {
         return memberName;
     }
 
     @Column(name = "CREATION_DATE")
-    public LocalDate getCreationDate() {
+    public LocalDate getCreationDate()
+    {
         return joiningDate;
+    }
+
+    @Column(name = "MILES")
+    public Long getMiles()
+    {
+        return miles;
     }
 
 
@@ -80,6 +93,9 @@ public class AccountType implements Serializable {
     public void setCreationDate(LocalDate joiningDate) {
         this.joiningDate = joiningDate;
     }
+    public void setMiles(Long miles) {
+        this.miles = miles;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -91,7 +107,7 @@ public class AccountType implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(memberId, memberPassword, memberName, joiningDate);
+        return Objects.hash(memberId, memberPassword, memberName, joiningDate, miles);
     }
 
     @Override
@@ -101,6 +117,7 @@ public class AccountType implements Serializable {
                 ", Password ='" + memberPassword + '\'' +
                 ", Member name='" + memberName + '\'' +
                 ", Joining date=" + joiningDate +
+                ", Miles=" + miles +
                 '}';
     }
 }

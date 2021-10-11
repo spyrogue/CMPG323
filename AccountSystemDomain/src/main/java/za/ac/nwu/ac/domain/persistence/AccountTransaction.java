@@ -19,23 +19,26 @@ public class AccountTransaction implements Serializable {
     private Long memberId;
     private Long amount;
     private LocalDate transactionDate;
+    private Long miles;
 
     public AccountTransaction() {
     }
 
-    public AccountTransaction(Long transactionId,Long memberId,Long amount,LocalDate transactionDate) {
+    public AccountTransaction(Long transactionId,Long memberId,Long amount,LocalDate transactionDate, Long miles) {
         this.transactionId = transactionId;
         this.memberId = memberId;
         this.amount = amount;
         this.transactionDate = transactionDate;
+        this.miles = miles;
     }
 
-    public AccountTransaction(Long transactionId, AccountType accountType, Long memberId, Long amount, LocalDate transactionDate) {
+    public AccountTransaction(Long transactionId, AccountType accountType, Long memberId, Long amount, LocalDate transactionDate, Long miles) {
         this.transactionId = transactionId;
         this.accountType = accountType;
         this.memberId = memberId;
         this.amount = amount;
         this.transactionDate = transactionDate;
+        this.miles = miles;
     }
 
     @Id
@@ -86,6 +89,15 @@ public class AccountTransaction implements Serializable {
 
     public void setTransactionDate(LocalDate transactionDate) {
         this.transactionDate = transactionDate;
+    }
+
+    @Column(name = "MILES")
+    public Long getMiles() {
+        return miles;
+    }
+
+    public void setMiles(Long transactionDate) {
+        this.miles = miles;
     }
 
     @Override
